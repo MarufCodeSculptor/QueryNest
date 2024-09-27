@@ -1,16 +1,44 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "!bg-blue-500 !text-white rounded-lg"
+              : "text-gray-800  hover:bg-blue-200 transition"
+          }
+          to={"/"}
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "!bg-blue-500 !text-white rounded-lg"
+              : "text-gray-800  hover:bg-blue-200 transition"
+          }
+          to={"/dashboard"}
+        >
+          dashboard
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/about"> about </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "!bg-blue-500 !text-white rounded-lg"
+              : "text-gray-800  hover:bg-blue-200 transition"
+          }
+          to={"/about"}
+        >
+          About
+        </NavLink>
       </li>
     </>
   );
@@ -18,7 +46,7 @@ const Navbar = () => {
   const role = "user";
 
   return (
-    <div className="navbar bg-secondary">
+    <div className="navbar bg-secondary font-lora ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,7 +72,12 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link
+          to={"/"}
+          className="font-lobster text-2xl text-blue-500 bg-blue-50 p-3 rounded-lg  border"
+        >
+          Query_Nest
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
