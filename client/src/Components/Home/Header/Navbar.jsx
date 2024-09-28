@@ -75,7 +75,7 @@ const Navbar = () => {
           </div>
           <Link
             to={"/"}
-            className="font-lobster text-4xl text-blue-500  p-3 rounded-lg  "
+            className="font-lobster text-3xl text-blue-500  p-3 rounded-lg  "
           >
             Query_Nest
           </Link>

@@ -18,6 +18,9 @@ export default {
         light: "#F5F5F5",
         dark: "#212121",
       },
+      maxWidth:{
+        container: "1280px"
+      }
     },
   },
   plugins: [require("daisyui")],
