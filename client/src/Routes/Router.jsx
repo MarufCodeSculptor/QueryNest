@@ -21,6 +21,10 @@ const rootChildrens = [
     path: "/about",
     element: <About />,
   },
+  {
+    path: "/details",
+    element: <About />,
+  },
 ];
 
 const dashboardChildrens = [

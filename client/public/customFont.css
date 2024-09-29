@@ -1,0 +1,9 @@
+/* src/fonts.css */
+@font-face {
+    font-family: 'lil'; /* Define the font name */
+    src: url('lil-regular.otf') format('opentype'); /* Use .otf and specify the format */
+    font-weight: normal;
+    font-style: normal;
+}
+
+

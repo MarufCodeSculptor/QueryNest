@@ -1,0 +1,176 @@
+[
+  {
+    "title": "Best Mobile OS",
+    "description": "Vote for the best mobile operating system.",
+    "options": { "Yes": 120, "No": 80 },
+    "totalVotes": 200,
+    "surveyor": {
+      "name": "John Smith",
+      "email": "john.smith@example.com"
+    },
+    "createdAt": "2024-09-25T14:45:00Z",
+    "comments": [
+      {
+        "userId": "101",
+        "userName": "JohnDoe",
+        "comment": "I think iOS is the best for its security.",
+        "likes": 5,
+        "dislikes": 1,
+        "timestamp": "2024-09-26T08:30:00Z"
+      },
+      {
+        "userId": "102",
+        "userName": "JaneSmith",
+        "comment": "I prefer Android for its flexibility and customization options.",
+        "likes": 10,
+        "dislikes": 0,
+        "timestamp": "2024-09-26T09:15:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Best Programming Language",
+    "description": "Vote for the most popular programming language.",
+    "options": { "Yes": 250, "No": 150 },
+    "totalVotes": 400,
+    "surveyor": {
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com"
+    },
+    "createdAt": "2024-09-27T10:00:00Z",
+    "comments": [
+      {
+        "userId": "103",
+        "userName": "DevMaster",
+        "comment": "JavaScript is essential for web development.",
+        "likes": 12,
+        "dislikes": 3,
+        "timestamp": "2024-09-27T10:00:00Z"
+      },
+      {
+        "userId": "104",
+        "userName": "CodeGuru",
+        "comment": "Python is great for beginners and AI development.",
+        "likes": 20,
+        "dislikes": 2,
+        "timestamp": "2024-09-27T11:45:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Remote Work Preference",
+    "description": "Do you prefer working remotely?",
+    "options": { "Yes": 180, "No": 70 },
+    "totalVotes": 250,
+    "surveyor": {
+      "name": "Bob Adams",
+      "email": "bob.adams@example.com"
+    },
+    "createdAt": "2024-09-28T12:00:00Z",
+    "comments": [
+      {
+        "userId": "105",
+        "userName": "RemoteFan",
+        "comment": "Remote work has improved my work-life balance.",
+        "likes": 15,
+        "dislikes": 1,
+        "timestamp": "2024-09-28T12:00:00Z"
+      },
+      {
+        "userId": "106",
+        "userName": "OfficeAdvocate",
+        "comment": "I miss the collaboration that happens in an office environment.",
+        "likes": 8,
+        "dislikes": 2,
+        "timestamp": "2024-09-28T13:30:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Best Streaming Platform",
+    "description": "Vote for the best streaming platform.",
+    "options": { "Yes": 300, "No": 50 },
+    "totalVotes": 350,
+    "surveyor": {
+      "name": "Sarah Miller",
+      "email": "sarah.miller@example.com"
+    },
+    "createdAt": "2024-09-29T15:00:00Z",
+    "comments": [
+      {
+        "userId": "107",
+        "userName": "StreamLover",
+        "comment": "Netflix has the best variety of shows and movies.",
+        "likes": 25,
+        "dislikes": 0,
+        "timestamp": "2024-09-29T15:00:00Z"
+      },
+      {
+        "userId": "108",
+        "userName": "BingeWatcher",
+        "comment": "I prefer Disney+ for its family-friendly content.",
+        "likes": 18,
+        "dislikes": 1,
+        "timestamp": "2024-09-29T16:20:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Best Social Media Platform",
+    "description": "Vote for the most popular social media platform.",
+    "options": { "Yes": 220, "No": 90 },
+    "totalVotes": 310,
+    "surveyor": {
+      "name": "Emily Davis",
+      "email": "emily.davis@example.com"
+    },
+    "createdAt": "2024-09-30T10:45:00Z",
+    "comments": [
+      {
+        "userId": "109",
+        "userName": "SocialExpert",
+        "comment": "Instagram is the best for visual content.",
+        "likes": 22,
+        "dislikes": 3,
+        "timestamp": "2024-09-30T10:45:00Z"
+      },
+      {
+        "userId": "110",
+        "userName": "InfluencerKing",
+        "comment": "TikTok is leading the way in short-form video content.",
+        "likes": 30,
+        "dislikes": 5,
+        "timestamp": "2024-09-30T11:10:00Z"
+      }
+    ]
+  },
+  {
+    "title": "Best Laptop Brand",
+    "description": "Vote for your favorite laptop brand.",
+    "options": { "Yes": 150, "No": 60 },
+    "totalVotes": 210,
+    "surveyor": {
+      "name": "Michael Brown",
+      "email": "michael.brown@example.com"
+    },
+    "createdAt": "2024-10-01T14:30:00Z",
+    "comments": [
+      {
+        "userId": "111",
+        "userName": "TechGeek",
+        "comment": "Apple MacBooks are unbeatable for creative professionals.",
+        "likes": 14,
+        "dislikes": 2,
+        "timestamp": "2024-10-01T14:30:00Z"
+      },
+      {
+        "userId": "112",
+        "userName": "PCMaster",
+        "comment": "Dell XPS offers excellent performance for a reasonable price.",
+        "likes": 12,
+        "dislikes": 1,
+        "timestamp": "2024-10-01T15:50:00Z"
+      }
+    ]
+  }
+]

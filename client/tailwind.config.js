@@ -6,7 +6,9 @@ export default {
       fontFamily:{
         lora:"'Lora', serif",
         roboto:"roboto,sans-serif",
-        lobster:"'Lobster', sans-serif"
+        lobster:"'Lobster', sans-serif",
+        lato:"'Lato','sans-serif'",
+        forum:"'Forum','serif"
       },
       colors: {
         primary: "#5965E0",
@@ -17,10 +19,12 @@ export default {
         info: "#2196F3",
         light: "#F5F5F5",
         dark: "#212121",
+        
       },
       maxWidth:{
         container: "1280px"
       }
+      
     },
   },
   plugins: [require("daisyui")],
