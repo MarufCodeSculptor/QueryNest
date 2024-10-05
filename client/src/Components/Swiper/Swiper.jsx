@@ -3,9 +3,11 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const SwiperJs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+ 
 
   return (
     <div>
@@ -40,7 +42,7 @@ const SwiperJs = () => {
                   organizations make informed decisions. Join us in shaping the
                   future by sharing your thoughts
                 </p>
-                <button className="btn btn-primary mt-5">
+                <button  className="btn btn-primary mt-5">
                   explore Survyes
                 </button>
               </div>

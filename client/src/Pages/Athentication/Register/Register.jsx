@@ -1,8 +1,10 @@
 import { FaFacebook, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { IoMdKey } from "react-icons/io";
 import useAuth from "../../../Hooks/useAuth";
+import { IoPersonCircleOutline } from "react-icons/io5";
+
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { BeatLoader } from "react-spinners";
@@ -11,27 +13,41 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [submit, setSubmit] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const { user, signUp } = useAuth();
+  const { user, signUp, updateName } = useAuth();
 
   const handleRegistration = async (form) => {
     setLoginLoading(true);
-    const { email, password } = form;
+    const { email, password, name } = form;
     try {
       const { user } = await signUp(email.value, password.value);
+      updateName(name.value);
       setLoginLoading(false);
+
       if (user) {
-        console.log(user);
         form.reset();
         setSubmit(false);
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+          text: "Welcome to our platform have a nice journey!",
+          customClass:{
+            popup:"font-lato"
+          }
+        });
+        navigate("/");
       }
     } catch (err) {
       console.log(err);
       Swal.fire({
         icon: "error",
         title: "oops",
-        text:err?.message,
-      });
+        text: err?.message,
+        customClass:{
+          popup:"font-lato"
+        }
+        });
 
       setLoginLoading(false);
     }
@@ -62,13 +78,28 @@ const Register = () => {
               >
                 <div className="form-control">
                   <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+
+                  <label className="input input-bordered flex items-center gap-2">
+                    <IoPersonCircleOutline className="text-blue-500 text-xl" />
+                    <input
+                      type="text"
+                      className="grow"
+                      name="name"
+                      placeholder="Full Name"
+                    />
+                  </label>
+                </div>
+                <div className="form-control">
+                  <label className="label">
                     <span className="label-text">Email</span>
                   </label>
 
                   <label className="input input-bordered flex items-center gap-2">
                     <MdEmail className="text-blue-500" />
                     <input
-                      type="text"
+                      type="email"
                       className="grow"
                       name="email"
                       placeholder="Email"

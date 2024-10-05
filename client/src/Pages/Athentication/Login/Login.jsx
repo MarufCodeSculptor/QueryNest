@@ -1,29 +1,49 @@
 import { FaFacebook, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MdEmail } from "react-icons/md";
 import { IoMdKey } from "react-icons/io";
 import useAuth from "../../../Hooks/useAuth";
+import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const { user, signUp, login } = useAuth();
+  const navigate = useNavigate()
 
-  const {user,} = useAuth();
-  
-  const handleLogin = (form) => {
+  const [emailTyped, setEmailTyped] = useState(false);
+  const [passwordType, setPasswordType] = useState(false);
 
+  const handleLogin = async (form) => {
+    const { email, password } = form;
 
-    console.log("working handle login button", form);
-
-
-    
+    try {
+      const { user } = await login(email.value, password.value);
+      if (user) {
+        form.reset();
+        setEmailTyped(false);
+        setPasswordType(false);
+        Swal.fire({
+          icon: "success",
+          title: "Login Successful",
+          text: "Welcome back to our platform have a nice journey!",
+          customClass: {
+            popup: "font-lato",
+          },
+        });
+        navigate("/");
+      }
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Login failed",
+        text: err?.message,
+        customClass: {
+          popup: "font-lato",
+        },
+      });
+      
+    }
   };
-
-
-
-
-
-
-
-
 
   return (
     <>
@@ -56,7 +76,18 @@ const Login = () => {
 
                     <label className="input input-bordered flex items-center gap-2">
                       <MdEmail className="text-blue-500" />
-                      <input type="text" className="grow" placeholder="Email" />
+                      <input
+                        type="email"
+                        name="email"
+                        className="grow"
+                        placeholder="Email"
+                        onChange={(e) => {
+                          console.log(e.target.value);
+
+                          e.target.value.length > 0 && setEmailTyped(true);
+                          e.target.value.length === 0 && setEmailTyped(false);
+                        }}
+                      />
                     </label>
                   </div>
                   {/* password */}
@@ -68,8 +99,13 @@ const Login = () => {
                       <IoMdKey className="text-xl text-blue-500" />
                       <input
                         type="password"
+                        name="password"
                         className="grow"
                         placeholder="password"
+                        onChange={(e) => {
+                          e.target.value.length > 6 && setPasswordType(true);
+                          e.target.value.length === 0 && setPasswordType(false);
+                        }}
                       />
                     </label>
 
@@ -85,7 +121,12 @@ const Login = () => {
 
                   <div className="form-control">
                     <div className="form-control mt-6">
-                      <button className="btn btn-primary">Login</button>
+                      <button
+                        disabled={!emailTyped || !passwordType}
+                        className="btn btn-primary"
+                      >
+                        Login
+                      </button>
                     </div>
                   </div>
                 </form>

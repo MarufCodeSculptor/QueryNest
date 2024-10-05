@@ -11,18 +11,16 @@ import { createContext, useEffect, useState } from "react";
 
 import Swal from "sweetalert2";
 
-
 import auth from "../firebase/firebase.config";
 
 export const AuthContext = createContext(null);
-// provider 
+// provider
 const providerOfGoogle = new GoogleAuthProvider();
-//facebook provider willbe aplied hre .. 
+//facebook provider willbe aplied hre ..
 //-------------------- component start ---------------
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
 
   const signUp = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -34,7 +32,6 @@ const AuthProvider = ({ children }) => {
   const googleSignIn = () => {
     return signInWithPopup(auth, providerOfGoogle);
   };
-
 
   const logOut = async () => {
     try {
@@ -52,8 +49,6 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-
-  
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
       displayName: name,
@@ -61,26 +56,32 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  const updateName = (name) => {
+    return updateProfile(auth.currentUser,{
+      displayName: name,
+    });
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser);
-    //   if (currentUser) {
-    //     const userInfo = { email: currentUser?.email };
+      //   if (currentUser) {
+      //     const userInfo = { email: currentUser?.email };
 
-    //     try {
-    //       const { data: token } = await axiosPublic.post("/jwt", userInfo);
-    //       localStorage.setItem("token", JSON.stringify(token));
-    //       setLoading(false);
-    //     } catch (err) {
-    //       console.log(err);
-    //       setLoading(false);
-    //     }
+      //     try {
+      //       const { data: token } = await axiosPublic.post("/jwt", userInfo);
+      //       localStorage.setItem("token", JSON.stringify(token));
+      //       setLoading(false);
+      //     } catch (err) {
+      //       console.log(err);
+      //       setLoading(false);
+      //     }
 
-    //     //  store token to the client
-    //   } else {
-    //     setLoading(false);
-    //     //  remove token if current user is not found >  token  prorably stored in the local storeage
-    //   }
+      //     //  store token to the client
+      //   } else {
+      //     setLoading(false);
+      //     //  remove token if current user is not found >  token  prorably stored in the local storeage
+      //   }
     });
 
     return () => {
@@ -99,6 +100,7 @@ const AuthProvider = ({ children }) => {
     loading,
     logOut,
     updateUserProfile,
+    updateName
   };
 
   return (
