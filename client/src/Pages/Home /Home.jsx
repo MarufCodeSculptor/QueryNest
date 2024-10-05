@@ -3,9 +3,10 @@ import LatestSurvey from "../../Components/Home/LatestSurvey/LatestSurvey";
 import SurveyPage from "../../Components/Home/LatestSurvey/ServeyCard";
 import Container from "../../Components/Shared/Container";
 
-// React
+import { firebaseConfig } from "../../firebase/firebase.config";
 
 const Home = () => {
+    console.log(firebaseConfig,'the config');
   return (
     <div>
       <Header />

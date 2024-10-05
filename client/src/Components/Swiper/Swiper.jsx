@@ -18,7 +18,6 @@ const SwiperJs = () => {
         loop={true}
         onSwiper={(swiper) => console.log(swiper)}
         onSlideChange={(swiper) => {
-          console.log(swiper.activeIndex, "fucken index");
           setActiveIndex(swiper.realIndex);
         }}
       >
@@ -31,8 +30,8 @@ const SwiperJs = () => {
             >
               <div className="text-white">
                 <h2 className="md:text-5xl text-2xl font-lobster">
-                  <span className="text-violet-500">Unlock the Power</span> <br /> of
-                  Data with Your Feedback
+                  <span className="text-violet-500">Unlock the Power</span>{" "}
+                  <br /> of Data with Your Feedback
                 </h2>
                 <p className="font-lato mt-5 md:text-base text-sm">
                   Gathering opinions, preferences, and experiences to provide
@@ -57,7 +56,8 @@ const SwiperJs = () => {
             >
               <div className="text-white">
                 <h2 className="md:text-5xl text-2xl font-lobster">
-                  <span className="text-purple-500">Your Opinion Matters</span><br />
+                  <span className="text-purple-500">Your Opinion Matters</span>
+                  <br />
                   Share Your Insights with Us
                 </h2>
                 <p className="font-lato mt-5 md:text-base text-sm">
@@ -83,8 +83,8 @@ const SwiperJs = () => {
             >
               <div className="text-white">
                 <h2 className="md:text-5xl text-2xl font-lobster">
-                  <span className="text-blue-500">Discover Insights</span> <br /> Drive
-                  Change
+                  <span className="text-blue-500">Discover Insights</span>{" "}
+                  <br /> Drive Change
                 </h2>
                 <p className="font-lato mt-5 md:text-base text-sm">
                   We provide a platform for individuals to share their opinions
