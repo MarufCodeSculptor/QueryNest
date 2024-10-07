@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
   updateProfile,
+  FacebookAuthProvider
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 
@@ -16,6 +17,7 @@ import auth from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
 // provider
 const providerOfGoogle = new GoogleAuthProvider();
+const providerOfFacebook = new FacebookAuthProvider();
 //facebook provider willbe aplied hre ..
 //-------------------- component start ---------------
 const AuthProvider = ({ children }) => {
@@ -31,6 +33,10 @@ const AuthProvider = ({ children }) => {
 
   const googleSignIn = () => {
     return signInWithPopup(auth, providerOfGoogle);
+  };
+  
+  const facebookSignIn = () => {
+    return signInWithPopup(auth, providerOfFacebook);
   };
 
   const logOut = async () => {
@@ -100,7 +106,8 @@ const AuthProvider = ({ children }) => {
     loading,
     logOut,
     updateUserProfile,
-    updateName
+    updateName,
+    facebookSignIn
   };
 
   return (

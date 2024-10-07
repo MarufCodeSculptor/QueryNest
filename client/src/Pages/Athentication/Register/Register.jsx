@@ -8,12 +8,15 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import { BeatLoader } from "react-spinners";
+import useSignInWithGoogle from "../../../Hooks/useSignInWithGoogle";
 const Register = () => {
   const [passMached, setPassMached] = useState(true);
   const [password, setPassword] = useState("");
   const [submit, setSubmit] = useState(false);
   const [loginLoading, setLoginLoading] = useState(false);
   const navigate = useNavigate();
+
+  const googlePopUp = useSignInWithGoogle();
 
   const { user, signUp, updateName } = useAuth();
 
@@ -32,9 +35,9 @@ const Register = () => {
           icon: "success",
           title: "Login Successful",
           text: "Welcome to our platform have a nice journey!",
-          customClass:{
-            popup:"font-lato"
-          }
+          customClass: {
+            popup: "font-lato",
+          },
         });
         navigate("/");
       }
@@ -44,10 +47,10 @@ const Register = () => {
         icon: "error",
         title: "oops",
         text: err?.message,
-        customClass:{
-          popup:"font-lato"
-        }
-        });
+        customClass: {
+          popup: "font-lato",
+        },
+      });
 
       setLoginLoading(false);
     }
@@ -165,6 +168,7 @@ const Register = () => {
             {/* social login icons  */}
             <div className="text-center flex items-center justify-center gap-5">
               <button
+                onClick={googlePopUp}
                 title="login with google"
                 className="transform transition-transform duration-200 ease-in-out hover:scale-110"
               >

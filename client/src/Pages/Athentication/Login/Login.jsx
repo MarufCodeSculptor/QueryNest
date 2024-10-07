@@ -5,13 +5,17 @@ import { IoMdKey } from "react-icons/io";
 import useAuth from "../../../Hooks/useAuth";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import useSignInWithGoogle from "../../../Hooks/useSignInWithGoogle";
+import useSignInWithFacebook from "../../../Hooks/useSignInWithFacebook";
 
 const Login = () => {
-  const { user, signUp, login } = useAuth();
-  const navigate = useNavigate()
+  const { user, signUp, login, facebookSignIn } = useAuth();
+  const navigate = useNavigate();
 
   const [emailTyped, setEmailTyped] = useState(false);
   const [passwordType, setPasswordType] = useState(false);
+  const googlePopUp = useSignInWithGoogle();
+  const facebookPopUp = useSignInWithFacebook();
 
   const handleLogin = async (form) => {
     const { email, password } = form;
@@ -41,7 +45,6 @@ const Login = () => {
           popup: "font-lato",
         },
       });
-      
     }
   };
 
@@ -138,6 +141,7 @@ const Login = () => {
               {/* social login icons  */}
               <div className="text-center flex items-center justify-center gap-5">
                 <button
+                  onClick={googlePopUp}
                   title="login with google"
                   className="transform transition-transform duration-200 ease-in-out hover:scale-110"
                 >
@@ -145,6 +149,7 @@ const Login = () => {
                 </button>
 
                 <button
+                  onClick={facebookPopUp}
                   title="login with facebook"
                   className="transform transition-transform duration-200 ease-in-out hover:scale-110"
                 >
